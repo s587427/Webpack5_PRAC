@@ -11,7 +11,7 @@ module.exports = {
         clean: true, // 重新編譯前刪除打包之前的文件
     },
     mode: 'production',
-    //devtool: 'inline-source-map', // 錯誤後可查看到原本代碼位置
+    devtool: 'source-map', // 錯誤後可查看到原本代碼位置
 
     //配置插件,值是一個陣列
     plugins: [

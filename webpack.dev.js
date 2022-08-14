@@ -4,17 +4,18 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
+
     entry: './src/index.js',
 
     mode: 'development',
 
-    devtool: 'inline-source-map', // 錯誤後可查看到原本代碼位置
-    
+    devtool: 'cheap-module-source-map', // 錯誤後可查看到原本代碼位置
+
     //配置插件,值是一個陣列
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html', //使用的html模板路徑
-            filename: 'app.html', //產出後的html名稱
+            //filename: 'app.html', //產出後的html名稱
             inject: 'body', // 注入script標籤的位置
         }),
         new MiniCssExtractPlugin({
@@ -43,7 +44,7 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|webp|svg)$/,
                 type: 'asset', //根據條件會轉換base64
                 parser: {
-                    dataUrlCondition:{
+                    dataUrlCondition: {
                         // 小於100kb轉base64字符串
                         // 優點: 減少請求量, 缺點: 體積會更大
                         maxSize: 100 * 1024, //10kb
@@ -67,9 +68,14 @@ module.exports = {
     devServer: {
         open: true,
         port: '1111',
-        // static: {
-        //     directory: path.join(__dirname, './dist'), // 配置用於從目錄提供靜態文件的選項
-        // },
+        hot: true, // 開啟(HMR) 只更新有修改的模塊不需整個頁面重新載入(打包速度快)
+        static: {
+            directory: path.join(__dirname, './dist'), // 配置用於從目錄提供靜態文件的選項,
+            //publicPath: '/serve-public-path-url',
+        },
+        // historyApiFallback: {
+        //     index: './app.html'
+        // }
     },
     // 配置優化
     optimization: {
