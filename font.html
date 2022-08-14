@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用外部字體Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;900&display=swap');
+
+    @font-face {
+        font-family: oxxo;
+        /*定義字體名稱 */
+        src: url('./src/fonts/RubikMarkerHatch-Regular.ttf');
+        /*url(字體檔超連結)*/
+    }
+
+    p {
+        font-size: 32px;
+    }
+
+    .p1 {
+        font-family: 'Comforter Brush', cursive;
+    }
+
+    .p2 {
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .p3 {
+        font-family: 'oxxo'
+    }
+</style>
+
+<body>
+
+    <p class="p1">使用 CSS link</p>
+    <p class="p2">使用 @import</p>
+    <p class="p3">使用 @font-face</p>
+    <p>使用 預設字體</p>
+
+</body>
+
+</html>

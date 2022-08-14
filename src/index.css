@@ -1,0 +1,42 @@
+body{
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: oxxo;
+    /*定義字體名稱 */
+    src: url('./fonts/RubikMarkerHatch-Regular.ttf');
+    /*url(字體檔超連結)*/
+}
+
+
+#container{
+    display: block;
+    background-color: red;
+}
+
+#container #box1, #container #box2, #container #box3{
+    width: 500px;
+    height: 500px;
+}
+
+#container #box1{
+    background-image: url('./images/1.jpg');
+    background-size: cover;
+    margin-top: 10px;
+}
+#container #box2{
+    background-image: url('./images/2.jpg');
+    background-size: cover;
+    margin-top: 10px;
+}
+#container #box3{
+    background-image: url('./images/3.jpg');
+    background-size: cover;
+    margin-top: 10px;
+}
+
+#container p{
+   font-family: oxxo;
+   font-size: 32px;
+}
